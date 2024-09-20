@@ -1,0 +1,607 @@
+/* Custom styles */
+* {
+  font-family: 'Volkolak', sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.bg-petroleum {
+  background-color: rgba(30, 25, 25, 1);
+}
+
+.spacer {
+  width: 100%;
+  height: 50px;
+}
+
+.big-spacer {
+  width: 100%;
+  height: 70vh;
+  border: 0px solid #000;
+}
+
+/* MENU DETAIL */
+/* SKEW */
+.effect {
+  position: absolute;
+  z-index: 999;
+  width: 100px;
+  height: 35px;
+  margin-top: -120px;
+  margin-left: 125px;
+  background-color: #FFCC00;
+  -webkit-transform: skew(20deg);
+  -moz-transform: skew(20deg);
+  -o-transform: skew(20deg);
+  overflow: hidden;
+}
+
+/* MENU */
+.navbar-custom {
+  background-color: #FFCC00;
+  /* Yellow background */
+  width: 870px;
+  height: 35px;
+  padding-left: 30px;
+}
+
+.jump-over {
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -120px;
+}
+
+.navbar-brand {
+  color: #000;
+  /* Black color for the text */
+  font-size: 24px;
+  /* Bigger font size */
+}
+
+.nav-item {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.black-font,
+.active-menu {
+  color: #000;
+  font-weight: bolder;
+}
+
+.right-position {
+  margin-right: 350px;
+}
+
+.nav-link {
+  color: #FFF;
+  font-size: 14px;
+  height: 400;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+.nav-link.active-menu {
+  color: #000;
+}
+
+ul {
+  width: 900px;
+}
+
+ul.position-mid li {
+  width: 150%m;
+}
+
+#navbarNav {
+  margin-top: -30px;
+  padding-right: -50px;
+}
+
+/* PAGES */
+/* HOME */
+#cover_lil_car {
+  margin-top: -75px;
+  margin-bottom: 0;
+}
+
+/* ADJUST CAR IMAGE */
+.header-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Ajustes gerais */
+.header-image {
+  position: relative;
+}
+
+
+/* ABOUT */
+.text-section {
+  padding: 40px 0;
+}
+
+.text-section p {
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.text-section .text-left p {
+  text-align: left;
+}
+
+.text-section .text-right p {
+  text-align: right;
+}
+
+.text-section strong {
+  font-weight: bold;
+}
+
+/* Carousel */
+.small-issue {
+  width: 150px;
+  /* Definindo o tamanho menor para as edições passadas */
+}
+
+.large-issue {
+  width: 250px;
+  /* Definindo o tamanho maior para a edição atual */
+}
+
+.owl-carousel .item {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Estilo básico para as setas */
+.nav-arrow {
+  font-size: 30px;
+  color: #333;
+  /* Cor da seta */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-arrow:hover {
+  color: #f8d700;
+  /* Cor da seta ao passar o mouse */
+}
+
+/* Posição das setas */
+.owl-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.owl-nav .owl-prev {
+  position: absolute;
+  display: block;
+  left: -25px;
+  /* Ajuste conforme necessário */
+}
+
+.owl-nav .owl-next {
+  position: absolute;
+  display: block;
+  right: -25px;
+  /* Ajuste conforme necessário */
+}
+
+/* CONTACT */
+/* Flexbox para alinhar a coluna ao fundo */
+.align-items-end {
+  display: flex;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 37px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* LOGIN FORM */
+/* Ajustando o tamanho e a posição do formulário de login */
+/* 
+.login-box h3 {
+  color: #333;
+  text-align: center;
+  font-size: 16px;
+}
+.login-box p {
+  font-size: 12px;
+  text-align: center;
+} */
+
+.login-box {
+  background-color: #ffcc00;
+  padding: 15px;
+  border-radius: 3px;
+  width: 225px;
+  height: 100px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.login-form {
+  position: absolute;
+  top: 3px;
+  right: 7px;
+  width: 210px;
+  /* Ajuste conforme necessário */
+}
+
+.txt-area,
+.btn_area {
+  height: 20px;
+}
+
+/* SUBSCRIBE */
+/* Estilos adicionais para os boxes de subscrição */
+.pricing-header {
+  text-align: center;
+  font-size: 24px;
+  padding: 20px;
+  color: #000;
+}
+
+.toUpCase {
+  text-transform: uppercase;
+}
+
+.allToCenter p {
+  text-align: center;
+}
+
+.pricing-box {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 30px 20px;
+  /* Aumenta o padding para maior espaçamento interno */
+}
+
+.dollar-sign {
+  font-size: 24px;
+  margin-left: -33px;
+  margin-top: 27px;
+}
+
+.price {
+  text-align: left;
+  margin-left: -25px;
+  font-size: 90px;
+  color: #000;
+  font-family: 'Times New Roman', serif;
+}
+
+.button-subscribe {
+  color: #fff;
+  background-color: #ffcc00;
+  /* Cor de fundo amarelo */
+  border: none;
+  /* Remove borda */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Sombra para o botão */
+  text-transform: uppercase;
+  margin-left: 35px;
+  color: #000;
+  /* Cor do texto */
+}
+
+.pricing-box {
+  border: 1px solid #ccc;
+  /* Adiciona borda cinza clara */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Adiciona sombra sutil */
+  margin-bottom: 20px;
+  /* Espaço entre os boxes */
+}
+
+/* FORGOT PASSWORD */
+/* Estilos adicionais para o box de recuperação de senha */
+.space-form {
+  padding-top: 30px;
+  /* Adiciona espaço no topo */
+  padding-bottom: 50px;
+  /* Adiciona espaço no fundo */
+  margin-bottom: 120px;
+  /* Adiciona espaço abaixo */
+}
+
+.form-group {
+  margin-bottom: 25px;
+  /* Espaço entre os inputs e o botão */
+}
+
+.btn-warning {
+  background-color: #f0ad4e;
+  /* Cor do botão, ajustável conforme seu tema */
+  border-color: #f0ad4e;
+  color: #ffffff;
+}
+
+.btn-warning:hover {
+  background-color: #ec971f;
+  /* Cor mais escura ao passar o mouse */
+  border-color: #d58512;
+}
+
+
+/* Estilos dos Banners */
+/* Banners sobrepostos */
+.banner {
+  padding: 20px;
+  color: white;
+  margin-top: 10%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  /* Bordas arredondadas opcionais */
+
+}
+
+.banner-container {
+  position: absolute;
+  margin-top: 20px;
+  /* Space from header image */
+  bottom: 20px;
+  /* Ajuste essa margem para controlar a altura da sobreposição */
+  margin-bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+  /* Garante que os banners fiquem sobre a imagem */
+}
+
+.banner-container-bottom {
+  position: absolute;
+  bottom: 0;
+  /* Ajuste essa margem para controlar a altura da sobreposição */
+  margin-bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+  /* Garante que os banners fiquem sobre a imagem */
+}
+
+
+/* Banners sequenciais */
+.banner-container-rel {
+  position: relative;
+  bottom: 20px;
+  /* Ajuste essa margem para controlar a altura da sobreposição */
+  width: auto;
+  margin: auto;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+  color: black;
+  /* Ensure visibility on yellow background */
+}
+
+.green {
+  background-color: green;
+}
+
+
+
+/* SANDWICH NAV */
+.navbar-toggler {
+  position: absolute;
+  background: #CCC;
+  z-index: 999;
+  top: -140px;
+  right: 30px;
+
+
+}
+
+/* Contêiner dos Banners */
+/*.banner {
+  height: 70px;
+  line-height: 70px; /* Centraliza o texto verticalmente * /
+  text-align: center;
+  color: #fff;
+}
+
+/* .banner-container-rel {
+  margin-top: 100px; /* Adiciona espaço entre a imagem do carro e os banners * /
+  padding-top: 20px; /* Adiciona espaço acima dos banners para garantir separação * /
+} */
+
+/* Ajuste adicional para responsividade e alinhamento */
+/* .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ */
+
+/* RESPONSIVITY */
+/* @media (max-width: 768px) {
+  .header-content {
+    padding: 20px;
+  }
+} */
+
+@media (min-width: 993px) and (max-width: 1199px) {
+
+  /* SKEW */
+  .effect {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    margin-left: 100px;
+    width: 100px;
+    height: 35px;
+    background-color: #FFCC00;
+  }
+}
+
+
+/* Media query para telas menores que 1000px */
+@media (max-width: 1000px) {
+  .login-box {
+    position: absolute;
+    /* Fixa o formulário no centro da página */
+    top: 300px;
+    /* Centraliza verticalmente */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajuste fino para centralização perfeita */
+    width: 225px;
+    /* Largura maior para destaque */
+    height: 100px;
+    /* Altura automática baseada no conteúdo */
+    padding: 20px;
+    /* Padding maior para melhor visualização */
+  }
+
+  .login-form {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    width: 210px;
+    /* Ajuste conforme necessário */
+  }
+
+  .big-spacer {
+    clear: both;
+    width: 100%;
+    height: 30vh;
+    border: 0px solid #000;
+  }
+
+  .banner-container-bottom {
+    position: relative;
+    /* Ajuste essa margem para controlar a altura da sobreposição */
+    width: 100%;
+    left: 50%;
+    margin-left: 0%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+  }
+
+  /* SKEW */
+  .effect {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    margin-left: 30px;
+    width: 100px;
+    height: 35px;
+    background-color: #FFCC00;
+  }
+
+  .pricing-box {
+    width: 100%;
+    /* Boxes ocupam 100% da largura em telas menores */
+    margin: 10px 0;
+    /* Ajusta as margens para telas menores */
+  }
+}
+
+
+/* Media query para telas menores que 1000px */
+@media (max-width: 769px) {
+  .login-box {
+    position: absolute;
+    /* Fixa o formulário no centro da página */
+    top: 80%;
+    /* Centraliza verticalmente */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajuste fino para centralização perfeita */
+    width: 225px;
+    /* Largura maior para destaque */
+    height: 100px;
+    /* Altura automática baseada no conteúdo */
+    padding: 20px;
+    /* Padding maior para melhor visualização */
+  }
+
+  .big-spacer {
+    width: 100%;
+    height: 30vh;
+    border: 0px solid #000;
+  }
+
+  .banner-container-bottom {
+    position: relative;
+    /* Ajuste essa margem para controlar a altura da sobreposição */
+    width: 100%;
+    left: 50%;
+    margin-left: 0%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    width: 100%;
+    transform: translateX(-50%);
+    z-index: 1;
+    /* Garante que os banners fiquem sobre a imagem */
+  }
+
+  .login-form {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    width: 210px;
+    /* Ajuste conforme necessário */
+  }
+}
+
+@media (max-width: 993px) {
+
+  /* SKEW */
+  .effect {
+    display: none;
+    /*     position: absolute;
+    z-index: 999;
+    left: 0;
+    margin-left: 100px;
+    width: 100px;
+    height: 35px;
+    background-color: #FFCC00; */
+  }
+}

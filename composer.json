@@ -1,0 +1,18 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "v6.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Controllers\\": "Controllers/",
+            "Controllers\\Administrator\\": "Controllers/administrator/",
+            "Models\\": "Models/",
+            "Models\\Administrator\\": "Models/administrator/",
+            "Views\\": "Views/",
+            "Views\\Administrator\\": "Views/administrator/",
+            "Helpers\\": "Helpers/",
+            "Components\\": "Components/"
+        }
+    }
+}
