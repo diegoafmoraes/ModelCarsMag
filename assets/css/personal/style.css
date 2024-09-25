@@ -156,14 +156,19 @@ ul.position-mid li {
 }
 
 /* Carousel */
-.small-issue {
-  width: 150px;
-  /* Definindo o tamanho menor para as edições passadas */
+/* Definindo o tamanho maior para a edição atual */
+.owl-carousel .item img.new-issue {
+  width: 250px;
+  margin-left: 15%;
 }
 
-.large-issue {
-  width: 250px;
-  /* Definindo o tamanho maior para a edição atual */
+/* Definindo o tamanho menor para as edições passadas */
+.owl-carousel .item img.old-issue {
+  position: absolute;
+  margin-top: 150px;
+  left: 50%;
+  margin-left: -75px;
+  width: 150px;
 }
 
 .owl-carousel .item {
@@ -173,8 +178,10 @@ ul.position-mid li {
 
 /* Estilo básico para as setas */
 .nav-arrow {
-  font-size: 30px;
-  color: #333;
+  font-size: 60px;
+  /* color: #333; */
+  color: rgba(200,200,200,0.7);
+  border: 1px solid #CCC;
   /* Cor da seta */
   cursor: pointer;
   transition: color 0.3s;

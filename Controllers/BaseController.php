@@ -103,6 +103,17 @@ class BaseController extends Controller
     }
 
     /**
+     * Generate Password 
+     *
+     * @param [type] $pw
+     * @return void
+     */
+    public static function generatePassword($pw)
+    {
+        return password_hash($pw, PASSWORD_DEFAULT);
+    }
+
+    /**
      * Generate a fake name from a given parameter.
      * @param mixed $param The parameter to use.
      * @return string The fake name.
@@ -141,8 +152,10 @@ class BaseController extends Controller
      * @param string $view The view to render.
      * @param array $array Additional data for the view.
      */
-    public function render($menu, $titleTXT, $view, $arrayContent)
+    protected function render($menu, $titleTXT, $view, $arrayContent)
     {
+        // header('Content-Type: text/html; charset=utf-8'); // Garante que o tipo de conteúdo seja HTML
+        
         parent::loadTemplate($menu, $titleTXT, $view, $arrayContent);
     }
 
@@ -153,7 +166,7 @@ class BaseController extends Controller
      * @param string $view The view to render.
      * @param array $array Additional data for the view.
      */
-    public function renderAdm($menu, $titleTXT, $view, $arrayContent)
+    protected function renderAdm($menu, $titleTXT, $view, $arrayContent)
     {
         parent::loadAdmTemplate($menu, $titleTXT, $view, $arrayContent);
     }

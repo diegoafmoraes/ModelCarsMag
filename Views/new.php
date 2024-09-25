@@ -3,7 +3,7 @@
     <div class="header-image" id="cover_lil_car">
         <!--     <img src="<?= BASE_URL; ?>assets/imgs/cover_lil_car.png" class="img-fluid" alt="Model Car Racing"> -->
 
-        <div class="container-fluid mt-5">
+        <div class="container-fluid mt-0">
 
             <section class="container text-section">
 
@@ -11,7 +11,11 @@
                     <div class="owl-carousel">
                         <?php foreach ($carouselCovers as $mag): ?>
                             <div class="item">
-                                <img src="<?= BASE_URL; ?>assets/images/magazine-covers/<?= $mag->cover; ?>" class="img-fluid small-issue" alt="Edição Passada">
+                                <?php if ($mag->atual === "T"): ?>
+                                    <img src="<?= BASE_URL; ?>assets/images/magazine-covers/<?= $mag->cover; ?>" class="new-issue" alt="Ed. xx/xxxx">
+                                <?php else: ?>
+                                    <img src="<?= BASE_URL; ?>assets/images/magazine-covers/<?= $mag->cover; ?>" class="old-issue" alt="Last Ed.">
+                                <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>

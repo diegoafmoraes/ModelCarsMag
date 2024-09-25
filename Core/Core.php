@@ -21,6 +21,10 @@ class Core
 
             // Verifica se o primeiro segmento da URL é 'administrator'
             if ($url[0] == 'administrator') {
+                // Redireciona para login caso falte o sufixo  '/login'
+                if(count($url) == 1) {
+                    header('Location: ' . BASE_URL . 'administrator/login');
+                }
                 $prefix = '\Controllers\administrator\\'; // Atualiza o prefixo para 'administrator'
                 array_shift($url); // Remove 'administrator' da URL para pegar o controlador
 

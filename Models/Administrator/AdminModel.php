@@ -4,50 +4,52 @@ namespace Models\Administrator;
 
 use \Models\BaseModel;
 
-class LoginAdminModel extends BaseModel
+class AdminModel extends BaseModel
 {
-    /**
-     * Checks Login and Password and returns True or False
-     *
-     * @param string $admin
-     * @return object|null
-     */
-    public function validateLogin($admin)
+    protected $table = 'admins';
+
+    public function getAll()
     {
-
-        // Retorno
-        $ret = [];
-
-        $sql = "SELECT * FROM admins WHERE user = :admin";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':admin', $admin);
-        $stmt->execute();
-
-        // Preparação para o retorno
-        if($stmt->rowCount() > 0) {
-            $ret = parent::fetch($stmt); // Retorna o objeto com user e password hash
-        } 
-
-        return $ret;
-
+        $sql = $this->db->prepare("SELECT id, name, user FROM " . $this->table . " WHERE deleted_at IS NULL");
+        $sql->execute();
+        return $sql->rowCount() > 0 ? parent::fetchAll($sql) : [];
     }
 
-    /**
-     * Find Users bu Login Data
-     *
-     * @param [type] $user
-     * @param [type] $password
-     * @return void
-     */
-    public function getUserByLogin($user, $password)
+    public function getById($id)
     {
-        $sql = "SELECT id, user FROM admins WHERE user = :user AND password = :password LIMIT 1";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(":user", $user);
-        $stmt->bindValue(":password", $password);
-        $stmt->execute();
+        $sql = $this->db->prepare("SELECT id, name, user FROM " . $this->table . " WHERE id = :id AND deleted_at IS NULL");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+        return $sql->rowCount() > 0 ? parent::fetch($sql) : null;
+    }
 
-        // Utilizando o método fetch da classe BaseModel
-        return parent::fetch($stmt);
+    public function add($data)
+    {
+        $hid = $this->geraHash(rand());
+        $sql = $this->db->prepare("INSERT INTO " . $this->table . " (hid, name, user, password, created_at, updated_at) VALUES (:hid, :name, :user, :password, NOW(), NOW())");
+        $sql->bindValue(":hid", $hid);
+        $sql->bindValue(":name", $data['name']);
+        $sql->bindValue(":user", $data['user']);
+        $sql->bindValue(":password", password_hash($data['password'], PASSWORD_DEFAULT));
+        return $sql->execute();
+    }
+
+    public function update($id, $data)
+    {
+        $sql = $this->db->prepare("UPDATE " . $this->table . " SET name = :name, user = :user, updated_at = NOW()" . (isset($data['password']) ? ", password = :password" : "") . " WHERE id = :id AND deleted_at IS NULL");
+        $sql->bindValue(":name", $data['name']);
+        $sql->bindValue(":user", $data['user']);
+        $sql->bindValue(":id", $id);
+        if (isset($data['password'])) {
+            $sql->bindValue(":password", password_hash($data['password'], PASSWORD_DEFAULT));
+        }
+        return $sql->execute();
+    }
+
+    public function delete($id)
+    {
+        $sql = $this->db->prepare("UPDATE " . $this->table . " SET deleted_at = NOW() WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        return $sql->execute();
     }
 }

@@ -12,11 +12,11 @@ class AdmMenuComponent extends BaseModel
 
         // buscar lista do bd
         $menuItems = [
-            'Admins' => 'admins-users',
+            'Admin Users' => 'admin',
             'Permissions' => 'permissions',
             'About' => 'about',
             'Publish' => 'publish',
-            'Commercial Banners' => 'commercial-banners',
+            'Commercial Banners' => 'commercialBanners',
             'Contact' => 'contact',
             'Subscriptions' => 'subscriptions',
         ];

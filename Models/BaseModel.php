@@ -53,6 +53,34 @@ class BaseModel extends Model
     }
 
     /**
+     * Generate a complex hash from a given parameter.
+     * @param mixed $param The parameter to hash.
+     * @return string The generated hash.
+     */
+    protected function geraHash($param)
+    {
+        $p1 = md5($param);
+        $p2 = sha1($param);
+        $p3 = uniqid($param);
+        $interval = rand(0, 98765432);
+
+        $str = $p1 . $interval . $p2 . $interval . $p3;
+
+        return substr($str, 0, 198);
+    }
+
+    /**
+     * Generate secure password
+     *
+     * @param [type] $password
+     * @return void
+     */
+    protected function genPassword($password)
+    {
+        return password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    /**
      * Debugger
      *
      * @param [type] $arr

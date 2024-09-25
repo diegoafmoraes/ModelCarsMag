@@ -6,43 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-        name="keywords"
-        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template" />
-    <meta
-        name="description"
-        content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>Matrix Admin Lite Free Version Template by WrapPixel</title>
     <!-- Favicon icon -->
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="<?= BASE_URL; ?>assets/administrator/images/favicon.png" />
-    <!-- Custom CSS -->
-    <link href="<?= BASE_URL; ?>assets/administrator/libs/flot/css/float-chart.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= BASE_URL; ?>assets/administrator/images/favicon.png" />
     <!-- Custom CSS -->
     <link href="<?= BASE_URL; ?>assets/administrator/css/style.min.css" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- DataTables -->
+    <link href="<?= BASE_URL; ?>assets/css/dataTables/datatables.min.css" rel="stylesheet">
+    <!-- SWAL -->
+    <link href="<?= BASE_URL; ?>assets/css/swal/sweetalert2.min.css" rel="stylesheet">
+    <!-- Quill WYSIWYG Text Editor -->
+    <!-- Include stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+
+    <!-- ============================================================== -->
+    <!-- All Jquery (needs to be up here) -->
+    <!-- ============================================================== -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="<?= BASE_URL; ?>assets/administrator/libs/jquery/dist/jquery.min.js"></script>
+    <script src="<?= BASE_URL; ?>assets/administrator/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= BASE_URL; ?>assets/js/dataTables/datatables.min.js"></script>
+    <script src="<?= BASE_URL; ?>assets/js/swal/sweetalert2.all.min.js"></script>
+    <script src="<?= BASE_URL; ?>assets/administrator/js/custom.min.js"></script>
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <!-- <div class="preloader">
+    <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
-    </div> -->
-
+    </div>
     <!-- Content -->
     <main role="main">
         <!-- MAIN CONTENT -->
@@ -67,7 +61,7 @@
                         <!-- ============================================================== -->
                         <!-- Logo -->
                         <!-- ============================================================== -->
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="dashboard">
                             <!-- Logo icon -->
                             <b class="logo-icon ps-2">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -125,6 +119,7 @@
                                     href="javascript:void(0)"
                                     data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
                             </li>
+                            <?php /*
                             <!-- ============================================================== -->
                             <!-- create new -->
                             <!-- ============================================================== -->
@@ -149,7 +144,7 @@
                                         <a class="dropdown-item" href="#">Something else here</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> 
                             <!-- ============================================================== -->
                             <!-- Search -->
                             <!-- ============================================================== -->
@@ -164,7 +159,7 @@
                                         placeholder="Search &amp; enter" />
                                     <a class="srh-btn"><i class="mdi mdi-window-close"></i></a>
                                 </form>
-                            </li>
+                            </li> */ ?>
                         </ul>
                         <!-- ============================================================== -->
                         <!-- Right side toggle and nav items -->
@@ -327,7 +322,7 @@
                                     <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-settings me-1 ms-1"></i> Account
                                         Setting</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+                                    <a id="LogoffBtn" class="dropdown-item" href="<?= BASE_ADM_URL; ?>/login/logout"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
                                     <div class="dropdown-divider"></div>
                                     <div class="ps-4 p-10">
                                         <a
@@ -352,20 +347,28 @@
             <aside class="left-sidebar" data-sidebarbg="skin5">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
-                    <?php foreach ( \Components\AdmMenu\AdmMenuComponent::showAdmMenu() as $key => $val): ?>
-                        <li class="nav-item ml-0 font-weight-bold">
-                            <a
-                                class="nav-link <?= \Components\AdmMenu\AdmMenuComponent::activePage() == $val ? 'text-dark' : 'text-white'; ?>"
-                                href="<?= $val; ?>"
-                                <?php
-                                echo in_array($val, \Components\AdmMenu\AdmMenuComponent::exceptPages())
-                                    ? "target='_blank'"
-                                    : "";
-                                ?>>
-                                <?= $key; ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav" class="pt-4">
+                            <?php foreach (\Components\AdmMenu\AdmMenuComponent::showAdmMenu() as $key => $val): ?>
+                                <li class="sidebar-item">
+                                    <a
+                                        class="sidebar-link waves-effect waves-dark sidebar-link <?= \Components\AdmMenu\AdmMenuComponent::activePage() == $val ? 'text-white' : 'text-white'; ?>"
+                                        href="<?= $val; ?>"
+                                        <?php
+                                        echo in_array($val, \Components\AdmMenu\AdmMenuComponent::exceptPages())
+                                            ? "target='_blank'"
+                                            : "";
+                                        ?>>
+                                        <i class="mdi mdi-view-dashboard"></i>
+                                        <span class="hide-menu">
+                                            <?= $key; ?>
+                                        </span></a>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </nav>
                 </div>
                 <!-- End Sidebar scroll-->
             </aside>
@@ -401,34 +404,55 @@
         <!-- MAIN CONTENT -->
     </main>
 
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="<?= BASE_URL; ?>assets/administrator/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="<?= BASE_URL; ?>assets/administrator/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="<?= BASE_URL; ?>assets/administrator/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/flot/excanvas.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.pie.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.time.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.stack.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="<?= BASE_URL; ?>assets/administrator/js/pages/chart/chart-page-init.js"></script>
 </body>
+
+<!-- This page JavaScript -->
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+
+<!-- Perfect ScrollBAr -->
+<script src="<?= BASE_URL; ?>assets/administrator/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<!-- Sparkline -->
+<script src="<?= BASE_URL; ?>assets/administrator/extra-libs/sparkline/sparkline.js"></script>
+<!-- Wave Effects -->
+<script src="<?= BASE_URL; ?>assets/administrator/js/waves.js"></script>
+<!-- Menu sidebar -->
+<script src="<?= BASE_URL; ?>assets/administrator/js/sidebarmenu.js"></script>
+<!-- Custom JavaScript 
+<script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
+<!-- Charts js Files -->
+<script src="<?= BASE_URL; ?>assets/administrator/libs/flot/excanvas.js"></script>
+<script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.js"></script>
+<script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.pie.js"></script>
+<script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.time.js"></script>
+<script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.stack.js"></script>
+<script src="<?= BASE_URL; ?>assets/administrator/libs/flot/jquery.flot.crosshair.js"></script>
+<script src="<?= BASE_URL; ?>assets/administrator/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="<?= BASE_URL; ?>assets/administrator/js/pages/chart/chart-page-init.js"></script>
+
+<script>
+    $(function() {
+        $('#LogoffBtn').on('click', function(e) {
+            e.preventDefault();
+
+            let leaveAdd = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You are leaving Admin Panel",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, i want to leave!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = leaveAdd;
+                }
+            });
+        });
+    });
+</script>
 
 </html>
