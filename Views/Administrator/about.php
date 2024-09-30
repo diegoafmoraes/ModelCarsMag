@@ -1,5 +1,5 @@
-<div class="container mt-4">
-    <h1>About Text Management</h1>
+<div class="container px-3 py-3">
+    <h1>About Us</h1>
     <button id="addTextBtn" class="btn btn-success">Add New Text</button>
     <table id="textsTable" class="display" style="width:100%">
         <thead>
@@ -44,7 +44,7 @@
 </div>
 
 <!-- Quill Scripts -->
-<!-- Link para o JS do Quill -->
+<!-- Quill JS -->
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 <script>
     var quillLeft = new Quill('#leftTxtBlock', {

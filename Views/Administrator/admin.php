@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container px-3 py-3">
     <h1>Admin Users</h1>
     <div class="float-right">
 
